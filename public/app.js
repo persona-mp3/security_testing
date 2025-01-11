@@ -1,6 +1,5 @@
-const form = document.querySelector('form');
-
-async function sendCredentials(formData, e){
+const loginForm = document.getElementById('login-form');
+async function validateCredentials(formData, e){
     try{
         const res = await fetch('http://localhost:3000/login', 
             {
@@ -8,14 +7,15 @@ async function sendCredentials(formData, e){
                 body: formData
             })
         
-        if (res.status !== 200){
+        if (res.status === 401){
             e.preventDefault();
             alert('Invalid Creds');
             return;
-        } else{
-            alert('VALID CREDS')
         }
 
+        if (res.status === 200){
+            alert(`LOGGED IN`)
+        }
         
     } catch (err){
         alert('Something went wrong');
@@ -23,8 +23,10 @@ async function sendCredentials(formData, e){
     }
 }
 
-form.addEventListener('submit', (e) => {
+
+loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const formData = new FormData(form);
-    sendCredentials(formData, e);
-})
+    const formData = new FormData(loginForm);
+    validateCredentials(formData, e);
+});
+
