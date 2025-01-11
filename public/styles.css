@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    gap: 2rem;
+}
+
+h2{
+    align-self: center;
+}
+
+form{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: .4rem;
+}
+
+.input-control{
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    place-content: center;
+    padding: .4rem;
+}
+
+input{
+    all: unset;
+    padding: .3rem;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-top: 2%;
+
+}
+
+button{
+    all: unset;
+    align-self: center;
+    padding: .6rem;
+    text-align: center;
+    color: black;
+    border: 1px solid;
+    border-radius: 5px;
+}
